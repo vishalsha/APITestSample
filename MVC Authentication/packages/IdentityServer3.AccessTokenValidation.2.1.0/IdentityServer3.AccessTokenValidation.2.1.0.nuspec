@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>IdentityServer3.AccessTokenValidation</id>
+    <version>2.1.0</version>
+    <title>IdentityServer3 - Access Token Validation</title>
+    <authors>Brock Allen, Dominick Baier</authors>
+    <owners>Brock Allen, Dominick Baier</owners>
+    <licenseUrl>https://github.com/IdentityServer/IdentityServer3.AccessTokenValidation/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/identityserver/IdentityServer3.AccessTokenValidation</projectUrl>
+    <iconUrl>https://identityserver.github.io/Documentation/assets/images/icons/IDserver_icon128.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Access token validation middleware for JWT and reference tokens issued by IdentityServer3.</description>
+    <summary />
+    <copyright>Copyright 2015</copyright>
+    <tags>IdentityServer OpenID Connect OpenIDConnect OAuth2 OWIN ASP.NET Katana WebApi SSO Federation Claims Identity JWT token</tags>
+    <dependencies>
+      <dependency id="Owin" version="1.0" />
+      <dependency id="Microsoft.Owin.Security.Jwt" version="3.0.0" />
+      <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+      <dependency id="Microsoft.IdentityModel.Protocol.Extensions" version="1.0.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Runtime.Caching" targetFramework="" />
+      <frameworkAssembly assemblyName="System.IdentityModel" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

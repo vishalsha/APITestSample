@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APIAccess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APIPAth" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeDB.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="EmpName" />
+      <PropertyRef Name="ManagerName" />
+      <PropertyRef Name="ActualHours" />
+      <PropertyRef Name="WorkingHours" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="salary" />
+      <PropertyRef Name="gender" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="emailId" />
+    </Key>
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ManagerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ManagerID" Type="int" />
+    <Property Name="ActualHours" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="WorkingHours" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="salary" Type="int" Nullable="false" />
+    <Property Name="gender" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Certificate" Type="nvarchar(max)" />
+    <Property Name="emailId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeDB.dbo.EmployeeTB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeTB">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="EmpName" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeDB.dbo.Table4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Table4">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TestData1" Type="int" />
+    <Property Name="TestData2" Type="float" />
+    <Property Name="Name" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Product__Categor__17F790F9">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeDBModelStoreContainer">
+    <EntitySet Name="APIAccess" EntityType="Self.APIAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Employee].[EmpID] AS [EmpID], 
+    [Employee].[EmpName] AS [EmpName], 
+    [Employee].[ManagerName] AS [ManagerName], 
+    [Employee].[ManagerID] AS [ManagerID], 
+    [Employee].[ActualHours] AS [ActualHours], 
+    [Employee].[WorkingHours] AS [WorkingHours], 
+    [Employee].[StartDate] AS [StartDate], 
+    [Employee].[EndDate] AS [EndDate], 
+    [Employee].[salary] AS [salary], 
+    [Employee].[gender] AS [gender], 
+    [Employee].[IsActive] AS [IsActive], 
+    [Employee].[Certificate] AS [Certificate], 
+    [Employee].[emailId] AS [emailId]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmployeeTB" EntityType="Self.EmployeeTB" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeTB].[ID] AS [ID], 
+    [EmployeeTB].[EmpID] AS [EmpID], 
+    [EmployeeTB].[EmpName] AS [EmpName], 
+    [EmployeeTB].[Email] AS [Email]
+    FROM [dbo].[EmployeeTB] AS [EmployeeTB]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Table4" EntityType="Self.Table4" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Table4].[Id] AS [Id], 
+    [Table4].[TestData1] AS [TestData1], 
+    [Table4].[TestData2] AS [TestData2], 
+    [Table4].[Name] AS [Name]
+    FROM [dbo].[Table4] AS [Table4]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Product__Categor__17F790F9" Association="Self.FK__Product__Categor__17F790F9">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

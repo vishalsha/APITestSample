@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8de43a9bfffa47adb293db80e0015e5a" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeDBModel.Category" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDBModel.Product" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDBModel.Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDBModel.EmployeeTB" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDBModel.Table4" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeDBModel.FK__Product__Categor__17F790F9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EmployeeDBModel.UserInfo" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EmployeeDBModel.APIAccess" Width="1.5" PointX="7.25" PointY="4.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

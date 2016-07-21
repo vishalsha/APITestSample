@@ -1,0 +1,1 @@
+D:\MVC Authentication\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache
